@@ -5,11 +5,9 @@ import template.slack.webhook.app.exception.CustomException;
 
 @Service
 public class CustomService {
-
-
     public String getService(int num) {
         if (num % 2 == 0)
-            throw new CustomException("짝수");
+            throw new IllegalArgumentException("짝수");
         else
             return "홀수";
     }

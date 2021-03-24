@@ -10,14 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
 @RestController
+@RequestMapping("/")
+@RequiredArgsConstructor
 public class Controller {
+
+    private final CustomService customService;
+
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public Response<String> getHandler(@RequestParam int code){
-        if (code % 2 == 0)
-            throw new RuntimeException();
-        else
-            return new Response<>(HttpStatus.OK,"홀수");
+    public Response<String> getHandler(@RequestParam int code) {
+        return new Response(HttpStatus.OK, customService.getService(code));
     }
 
     @PostMapping

@@ -14,12 +14,6 @@ import java.io.IOException;
  * ThreadLocal에 구별할 수 있는 키 값을 저장하여 Thread가 존재하는 한 계속 사용가능
  */
 public class MdcFilter implements Filter {
-
-    @Override
-    public void init(FilterConfig filterConfig) throws ServletException {
-
-    }
-
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         RequestWrapper requestWrapper = RequestWrapper.of((HttpServletRequest) request);
@@ -31,10 +25,5 @@ public class MdcFilter implements Filter {
         } finally {
             MDC.clear();
         }
-    }
-
-    @Override
-    public void destroy() {
-
     }
 }

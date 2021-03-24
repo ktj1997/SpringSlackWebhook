@@ -19,7 +19,7 @@ public class RequestWrapper {
     }
 
     public Map<String, String> getHeader() {
-        Map<String, String> headerMap = new LinkedHashMap<>();
+        Map<String, String> headerMap = new HashMap<>();
         Enumeration<String> headerNames = request.getHeaderNames();
         while (headerNames.hasMoreElements()) {
             String name = headerNames.nextElement();
@@ -41,7 +41,7 @@ public class RequestWrapper {
     }
 
     public Map<String, String> getParameter() {
-        Map<String, String> parameterMap = new LinkedHashMap<>();
+        Map<String, String> parameterMap = new HashMap<>();
         Enumeration<String> parameterKey = request.getParameterNames();
         while (parameterKey.hasMoreElements()) {
             String key = parameterKey.nextElement();

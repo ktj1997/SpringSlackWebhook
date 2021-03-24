@@ -20,7 +20,13 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.12.2'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.2'
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.12.2'
+    implementation 'net.gpedro.integrations.slack:slack-webhook:1.4.0'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'net.minidev:json-smart:2.3'
+    implementation 'commons-io:commons-io:2.5'
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor 'org.projectlombok:lombok'
