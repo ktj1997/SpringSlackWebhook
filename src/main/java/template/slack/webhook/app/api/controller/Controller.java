@@ -24,13 +24,13 @@ public class Controller {
 
     @PostMapping
     public Response postHandler(HttpServletRequest request) throws IOException {
-
-        return null;
+        return new Response(HttpStatus.OK, customService.postService(request.getInputStream()));
     }
 
     @PutMapping
-    public Response putHandler() {
-        return null;
+    public Response putHandler(HttpServletRequest request) throws IOException {
+
+        return new Response(HttpStatus.OK, customService.putService(request.getInputStream()));
     }
 
 }

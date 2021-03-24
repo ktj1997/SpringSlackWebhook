@@ -1,16 +1,22 @@
 package template.slack.webhook.app.exception;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.springframework.core.annotation.Order;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
+import template.slack.webhook.app.api.response.Response;
 
+
+@Order(1)
 @ControllerAdvice
+@RestController
 public class GlobalExceptionHandler {
-    Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    @ExceptionHandler
-    public void logging(Exception e) {
-        logger.error(e.getMessage());
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(value = ApiException.class)
+    public Response logging(ApiException e) {
+        return new Response(HttpStatus.BAD_REQUEST, e);
     }
 }
